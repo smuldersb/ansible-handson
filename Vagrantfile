@@ -25,9 +25,9 @@ Vagrant.configure("2") do |config|
     end
   end
 
-  config.vm.define "master" do |m|
+  config.vm.define "control" do |m|
     m.vm.box = "ubuntu/trusty64"
-    m.vm.hostname = "master"
+    m.vm.hostname = "control"
     m.vm.network "private_network", ip: "10.0.0.100"
     m.vm.provider "virtualbox" do |v|
       v.memory = 512
