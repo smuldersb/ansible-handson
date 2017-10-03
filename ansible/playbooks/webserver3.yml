@@ -1,0 +1,27 @@
+---
+- name: Install nginx on slave2
+  hosts: slave2
+  user: vagrant
+  become: true
+  become_user: root
+  vars:
+    siteowner: "Infiniot"
+
+
+  tasks:
+  - name: install nginx
+    apt:
+      name: nginx
+      state: latest
+      update_cache: yes
+
+  - name: change the homepage
+    template:
+      src: /vagrant/ansible/templates/withvars.j2
+      dest: /usr/share/nginx/html/index.html
+      owner: root
+      group: root
+      mode: 0644
+
+
+

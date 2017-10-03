@@ -1,0 +1,14 @@
+---
+- name: ping the slaves
+  hosts: slaves
+  user: vagrant
+
+  tasks:
+  - name: ping them
+    ping:
+
+  - name: ping back something else
+    ping: data=bla
+
+  - name: fail to ping
+    ping: data=crash
